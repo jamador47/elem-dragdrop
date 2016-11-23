@@ -116,9 +116,41 @@ cpdefine("inline:com-chilipeppr-elem-dragdrop", ["chilipeppr_ready"], function (
             this.setupGlobalAjaxError();
             this.setupSubscribe();
             
+            this.setupOpenFile();
             this.setupDownload();
             
             //console.log(this);
+        },
+        setupOpenFile: function() {
+            var filePicker = $("#com-chilipeppr-elem-dragdrop-openfile-picker");
+
+            filePicker.on('change', function(){
+                if (!window.FileReader) {
+                    alert('Your browser is not supported');
+                    return false;
+                }
+                
+                var input = filePicker.get(0);
+                if (input.files.length > 0) {
+                    var fileReader = new FileReader();
+                    fileReader.fileName = input.files[0].name; // HAX, but simplest way to pass up the stack
+                    
+                    fileReader.onload = function (fileLoadedEvent) {
+                        var gcodetxt = fileLoadedEvent.target.result;
+                        
+                        var info = {
+                        	name: fileLoadedEvent.target.fileName, 
+                        	lastModified: new Date()
+                        };
+                        
+                        chilipeppr.publish("/com-chilipeppr-elem-dragdrop/ondropped", gcodetxt, info);
+                    };
+                    
+                    fileReader.readAsText(input.files[0], "UTF-8");
+                }
+            });
+            
+            $('.com-chilipeppr-elem-dragdrop-openfile').click(function() { $("#com-chilipeppr-elem-dragdrop-openfile-picker").click(); });
         },
         setupDownload: function() {
             $('.com-chilipeppr-elem-dragdrop-download').click(this.onDownload.bind(this));
