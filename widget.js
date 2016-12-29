@@ -79,6 +79,9 @@ cpdefine("inline:com-chilipeppr-elem-dragdrop", ["chilipeppr_ready"], function (
             $('.com-chilipeppr-elem-dragdrop-loadlogoinch').click("//i2dcui.appspot.com/3d/chilipepprlogo.inches.nc", this.loadUrlDoNotCreateRecentFileEntry.bind(this));
             $('.com-chilipeppr-elem-dragdrop-loadcirclediamondsquare').click("//i2dcui.appspot.com/img/gcode/Circle-diamond-square-50-45-40mm.gcode", this.loadUrlDoNotCreateRecentFileEntry.bind(this));
             $('.com-chilipeppr-elem-dragdrop-loadlogosvg').click("//i2dcui.appspot.com/img/svg/chilipepprlogo.svg", this.loadUrlDoNotCreateRecentFileEntry.bind(this));
+            $('.com-chilipeppr-elem-dragdrop-loadeagleuno').click("//i2dcui.appspot.com/slingshot?url=https://raw.githubusercontent.com/chilipeppr/elem-dragdrop/master/arduinoUnoRev3.brd", this.loadUrlDoNotCreateRecentFileEntry.bind(this));
+            $('.com-chilipeppr-elem-dragdrop-loadeaglemicro').click("//i2dcui.appspot.com/slingshot?url=https://raw.githubusercontent.com/chilipeppr/elem-dragdrop/master/Arduino_Micro_Rev03j.brd", this.loadUrlDoNotCreateRecentFileEntry.bind(this));
+            $('.com-chilipeppr-elem-dragdrop-loadeagleadafruitruler').click("//i2dcui.appspot.com/slingshot?url=https://raw.githubusercontent.com/chilipeppr/elem-dragdrop/master/AdafruitPCBReferenceRuler.brd", this.loadUrlDoNotCreateRecentFileEntry.bind(this));
             
             // setup del files
             $('.com-chilipeppr-elem-dragdrop .recent-file-delete').click(this.deleteRecentFiles.bind(this));
